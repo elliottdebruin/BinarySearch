@@ -34,7 +34,25 @@ public int linearSearch(int catNumToFind)
 }
 public int binarySearch(int catNumToFind)
 {
-    //complete this method    
+    int low = 0;
+    int high = store.length - 1;
+    int guess = -1;
+    while(low<=high)
+    {
+        guess = (low + high)/2;
+        if(store[guess].getCatNum() == catNumToFind)
+        {
+            return store[guess].getInventory();
+        }
+        else if(store[guess].getCatNum() < catNumToFind)
+        {
+            low = guess + 1;
+        }
+        else 
+        {
+            high = guess -1;   
+        }
+    }
     return -1;    
 }
 public int binarySearch(int catNumToFind,int nLow, int nHigh)
